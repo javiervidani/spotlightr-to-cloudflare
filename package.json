@@ -1,0 +1,24 @@
+{
+  "name": "spotlightr-to-cloudflare",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "migrate.js",
+  "scripts": {
+    "start": "node migrate.js",
+    "dry-run": "node migrate.js --dry-run"
+  },
+  "keywords": [
+    "spotlightr",
+    "cloudflare",
+    "stream",
+    "video",
+    "migration"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "Migrate videos from Spotlightr to Cloudflare Stream",
+  "dependencies": {
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.4"
+  }
+}
