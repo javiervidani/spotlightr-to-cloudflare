@@ -17,7 +17,7 @@ Reads a Spotlightr CSV export, extracts the original file URLs, and uploads each
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/spotlightr-to-cloudflare.git
+git clone https://github.com/javiervidani/spotlightr-to-cloudflare.git
 cd spotlightr-to-cloudflare
 
 # 2. Install dependencies
