@@ -2,4 +2,6 @@ node_modules/
 .env
 migration-results.json
 .vscode/
+caption/
+caption-upload.log
 *.log

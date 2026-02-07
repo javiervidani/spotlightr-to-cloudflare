@@ -100,6 +100,40 @@ After migration, `migration-results.json` contains a record for each video:
 | `Unauthorized` | Invalid API token | Update `CLOUDFLARE_API_TOKEN` in `.env` |
 | `Rate limited` | Too many requests | Increase `DELAY_MS` in `.env` |
 
+## Caption Upload
+
+After migrating videos, you can upload SRT subtitle files to Cloudflare Stream.
+
+### Setup
+
+1. Create a `caption/` folder in the project root: `mkdir caption`
+2. Place your `.srt` files inside it
+3. Make sure `migration-results.json` exists (created by the migration step)
+
+### How matching works
+
+The script matches each SRT file to a Cloudflare video by comparing the **filename** (without the `.srt` extension) to the **video name** (without the `.mp4` extension) stored in `migration-results.json`. Whitespace is normalized during comparison.
+
+### Commands
+
+```bash
+# Preview matches without uploading
+npm run captions:dry-run
+
+# Upload all matched captions (default language: Hebrew "he")
+npm run captions
+
+# Specify a different language code
+node upload-captions.js --lang=en
+node upload-captions.js --dry-run --lang=es
+```
+
+### Notes
+
+- Unmatched SRT files are listed at the end of each run so you can rename them
+- Captions are uploaded via `PUT /stream/{uid}/captions/{lang}` with the SRT file as multipart form data
+- The `caption/` folder is git-ignored
+
 ## License
 
 MIT

@@ -5,7 +5,9 @@
   "main": "migrate.js",
   "scripts": {
     "start": "node migrate.js",
-    "dry-run": "node migrate.js --dry-run"
+    "dry-run": "node migrate.js --dry-run",
+    "captions": "node upload-captions.js",
+    "captions:dry-run": "node upload-captions.js --dry-run"
   },
   "keywords": [
     "spotlightr",
